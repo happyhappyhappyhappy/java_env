@@ -2,9 +2,10 @@ import java.util.*;
 // テストデータ取り出し→標準出力まで
 public class Main{
  
+    private static int s_length;
     public static int listup(int[] S,int[] B){
         int result=0;
-        int s_length=S.length;
+        s_length = S.length;
         int b_length=B.length;
         Arrays.sort(S);
         Arrays.sort(B);
