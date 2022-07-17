@@ -21,6 +21,8 @@ public class Main{
         sc.close();
         Arrays.sort(S);
         int result=0;
+        /** 
+        一旦java.util.Arraysに備わる二分探索に頼る
         for(int j=0;j<q;j++){
             Boolean checkresult;
             checkresult=check(S,T[j]);
@@ -28,7 +30,13 @@ public class Main{
                 result = result + 1;
             }
         }
+        **/
+        for(int j=0;j<q;j++){
+            int check_pos=Arrays.binarySearch(S, T[j]);
+            if(0 <= check_pos){
+                result = result + 1;
+            }
+        }
         System.out.println(result);
     }
-
 }
