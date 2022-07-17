@@ -11,3 +11,6 @@
 -----
 ヒント
 
+## 結果
+
+[成功](https://onlinejudge.u-aizu.ac.jp/status/users/ymnk_kun/submissions/1/ALDS1_4_A/judge/6818513/JAVA)
