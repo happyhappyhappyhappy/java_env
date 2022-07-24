@@ -1,7 +1,6 @@
 import java.util.*;
 // テストデータ取り出し→標準出力まで
 public class Main{
-    // TODO: ここチェック→コピー元
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         // データ取得プロセス
