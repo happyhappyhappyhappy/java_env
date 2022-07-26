@@ -40,9 +40,12 @@ public class Main{
         Scanner sc=new Scanner(System.in);
         // データ入力
         // 全長
-        int d1=100;
+        int d1;
+        d1 = sc.nextInt();
         // 店舗の個数
         int d2=sc.nextInt();
+        // 注文の個数
+        int d3=sc.nextInt();
         int S[] = new int[d2+1];
         for(int j=0;j<d2-1;j++){
             S[j] = sc.nextInt();
@@ -50,14 +53,14 @@ public class Main{
         S[d2] = d1;
         S[d2-1]=0;
         Arrays.sort(S);
-        // 注文の個数
-        int d3=sc.nextInt();
         // 注文者の位置
         int T[]=new int[d3];
         for(int j=0;j<d3;j=j+1){
             T[j]=sc.nextInt();
         }
         sc.close();
+        Arrays.sort(T);
+        /** 
         for(int j=0;j<d2+1;j++){
             System.out.print(S[j]+" ");
         }
@@ -66,6 +69,7 @@ public class Main{
             System.out.print(T[j]+" ");
         }
         System.out.println();
+        **/
         /** for(int j=0;j<d3;j++){
             System.out.println(T[j]+"-->"+low_pos(S,T[j]));
         }**/
