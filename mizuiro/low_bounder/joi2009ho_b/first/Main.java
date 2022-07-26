@@ -10,7 +10,7 @@ public class Main{
         int left=-1;
         while(Math.abs(right-left)>1){
             int mid=(right+left)/2;
-            if(x<=S[mid]){
+            if(x<S[mid]){
                 right = mid;
             }
             else{
