@@ -10,7 +10,8 @@ public class Main{
         int left=-1;
         while(Math.abs(right-left)>1){
             int mid=(right+left)/2;
-            if(x<S[mid]){// 不等号をこれで真似てみる
+           // if(x<=S[mid]){// 不等号をこれで真似てみる
+             if(x<S[mid]){
                 right = mid;
             }
             else{
@@ -24,6 +25,7 @@ public class Main{
         int result=0;
         Arrays.sort(S);
         Arrays.sort(T);
+        /** 目的はある客ならどこの店を示すのか分かればいい 
         for(int j=0;j<T.length;j++){
             int pos = low_pos(S,T[j]);
             int under_path=Math.abs(T[j]-S[pos]);
@@ -35,6 +37,22 @@ public class Main{
                 result = result + upper_path;
             }
         }
+        **/
+        System.out.println("店の位置リスト");
+        for(int j=0;j<S.length;j++){
+            System.out.print(S[j]+" ");
+        }
+        System.out.println();
+        System.out.println("客の位置");
+        for(int j=0;j<T.length;j++){
+            System.out.print(T[j]+" ");
+        }
+        System.out.println();
+        System.out.println("結果");
+        for(int j=0;j<T.length;j++){
+            System.out.print(low_pos(S,T[j])+" ");
+        }
+        System.out.println();
         return result;
     }
     public static void main(String[] args){
