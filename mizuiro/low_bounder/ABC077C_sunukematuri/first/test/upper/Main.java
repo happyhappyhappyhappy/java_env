@@ -2,7 +2,7 @@ import java.util.*;
 // テストデータ取り出し→標準出力まで
 public class Main{
     public static boolean isLowOK(long content,long search){
-        if(content >= search){ // S[mid] >= basic
+        if(content > search){ // S[mid] > basic
             return true;
         }
         else{
@@ -10,7 +10,7 @@ public class Main{
         }
 
     }
-    public static int j_lowbounder(long basic,long[] S){
+    public static int j_upperbounder(long basic,long[] S){
         int right=S.length;
         int left=-1;
         while(Math.abs(right-left)>1){
@@ -21,7 +21,6 @@ public class Main{
             else{
                 left = mid;
             }
-            System.out.println("left="+left+"\tright="+right);
         }
         return right;
     }
@@ -41,9 +40,9 @@ public class Main{
             System.out.print(S[j]+" ");
         }
         System.out.println();
-        System.out.println("と "+basic+" をlower観点で見ます");
+        System.out.println("と "+basic+" をupper観点で見ます");
         int pos;
-        pos = j_lowbounder(basic,S);
+        pos = j_upbounder(basic,S);
         System.out.println(pos);
     }
 }

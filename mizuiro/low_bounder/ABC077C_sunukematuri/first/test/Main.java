@@ -12,8 +12,9 @@ public class Main{
                 num[k] = sc.nextLong();
             }
             Arrays.sort(num);
+            System.out.println(testnumber);
             for(int k=0;k<testnumber;k=k+1){
-                System.out.print(num[testnumber]+" ");
+                System.out.print(num[k]+" ");
             }
             System.out.println();
         }
