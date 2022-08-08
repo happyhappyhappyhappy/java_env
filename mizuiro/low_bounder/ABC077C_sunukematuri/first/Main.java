@@ -21,7 +21,6 @@ public class Main{
             else{
                 left = mid;
             }
-            System.out.println("left="+left+"\tright="+right);
         }
         return right;
     }
@@ -48,28 +47,33 @@ public class Main{
         }
         return right;
     }
+    public static long solver(int peace,long[] A,long[] B,long[] C){
+        long result=0;
+        for(int j=0;j<peace;j=j+1){
+            int acount=0;
+            int ccount=0;
+            acount=j_lowbounder(B[j],A);
+            ccount=j_upperbounder(B[j], C);
+            result = result + acount*(peace-ccount);            
+        }
+        return result;
+    }
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        // データ取得プロセス
-        int counter=sc.nextInt();
-        long S[] = new long[counter];
-        for(int j=0;j<counter;j++){
-            S[j]=sc.nextLong();
+        int peace = sc.nextInt();
+        long[] A=new long[peace];
+        long[] B=new long[peace];
+        long[] C=new long[peace];
+        for(int j=0;j<peace;j=j+1){
+            A[j] = sc.nextLong();
         }
-        long basic=sc.nextLong();
+        for(int j=0;j<peace;j=j+1){
+            B[j] = sc.nextLong();
+        }
+        for(int j=0;j<peace;j=j+1){
+            C[j] = sc.nextLong();
+        }
         sc.close();
-        Arrays.sort(S);
-        System.out.println("これから");
-        for(int j=0;j<counter;j++){
-            System.out.print(S[j]+" ");
-        }
-        System.out.println();
-        System.out.println("と "+basic+" をupper観点で見ます");
-        int pos;
-        pos = j_upperbounder(basic,S);
-        System.out.println(pos);
-        System.out.println("sunuke祭りのC部分で使える本数は");
-        int pattern=counter-pos;
-        System.out.println(pattern);
+        System.out.println(solver(peace,A,B,C));
     }
 }
