@@ -1,6 +1,30 @@
 import java.util.*;
 // テストデータ取り出し→標準出力まで
 public class Main{
+    public static boolean isLowOK(long content,long search){
+        if(content >= search){ // S[mid] >= basic
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+    public static int j_lowbounder(long basic,long[] S){
+        int right=S.length;
+        int left=-1;
+        while(Math.abs(right-left)>1){
+            int mid = (right+left)/2;
+            if(isLowOK(S[mid], basic)){
+                right = mid;
+            }
+            else{
+                left = mid;
+            }
+            System.out.println("left="+left+"\tright="+right);
+        }
+        return right;
+    }
     public static boolean isUppOK(long content,long search){
         if(content > search){ // S[mid] > basic
             return true;
