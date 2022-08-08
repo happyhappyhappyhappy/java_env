@@ -1,4 +1,5 @@
 import java.util.*;
+// テストデータ取り出し→標準出力まで
 public class Main{
     public static boolean isLowOK(long content,long search){
         if(content >= search){ // S[mid] >= basic
@@ -46,14 +47,14 @@ public class Main{
         }
         return right;
     }
-    public static long solver(long[] A,long[] B,long[] C){
+    public static long solver(int peace,long[] A,long[] B,long[] C){
         long result=0;
-        for(int j=0;j<A.length;j=j+1){
+        for(int j=0;j<peace;j=j+1){
             int acount=0;
             int ccount=0;
             acount=j_lowbounder(B[j],A);
-            ccount=B.length-j_upperbounder(B[j], C);
-            result = result + acount*ccount;            
+            ccount=j_upperbounder(B[j], C);
+            result = result + acount*(peace-ccount);            
         }
         return result;
     }
@@ -76,6 +77,6 @@ public class Main{
         Arrays.sort(A);
         Arrays.sort(B);
         Arrays.sort(C);
-        System.out.println(solver(A,B,C));
+        System.out.println(solver(peace,A,B,C));
     }
 }

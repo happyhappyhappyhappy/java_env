@@ -24,3 +24,48 @@
 
 [cf](https://akhtikd.com/posts/2019-12-11/)
 ok,ngよりやはりleft,right がしっくりくる.
+
+現在、C++と同じ箇所で引っかかっている。しかしそこを見直してもどうも上手くいかない。
+
+```text
+7c7
+<     ll left,right;
+---
+>     int left,right;
+11c11
+<         ll mid;
+---
+>         int mid;
+24c24
+<     ll left,right;
+---
+>     int left,right;
+28c28
+<         ll mid;
+---
+>         int mid;
+40c40
+< ll solver(ll N,vector<ll> &U,vector<ll> &M,vector<ll> &B){
+---
+> ll solver(int N,vector<ll> &U,vector<ll> &M,vector<ll> &B){
+46,49c46,49
+<     for(ll j=0;j<N;j++){
+<         ll u_able;
+<         ll b_able;
+<         ll b_result;
+---
+>     for(int j=0;j<M.size();j++){
+>         int u_able;
+>         int b_able;
+>         int b_result;
+52c52
+<         b_able=B.size()-b_result;
+---
+>         b_able=B.size()-upper_bound2(B,M[j]);
+66c66
+<     ll N;
+---
+>     int N;
+```
+
+一旦、[他人のソース](https://atcoder.jp/contests/abc077/submissions/29854703)を見ながらやってみる。同じ値が無くても法則はある模様。
