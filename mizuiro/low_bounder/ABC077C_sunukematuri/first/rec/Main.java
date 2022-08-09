@@ -50,7 +50,7 @@ public class Main{
                 }
             }
             upperbound=(long)(peace-right);
-            answer = answer + upperbound*lowbound;
+            answer = answer + upperbound*lowbound; // test
         }
         System.out.println(answer);
     }
