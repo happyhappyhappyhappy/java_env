@@ -1,51 +1,6 @@
 import java.util.*;
+
 public class Main{
-    public static boolean isLowOK(int content,int search){
-        if(content >= search){ // S[mid] >= basic
-            return true;
-        }
-        else{
-            return false;
-        }
-
-    }
-    public static int j_lowbounder(int basic,int[] S){
-        int right=S.length;
-        int left=-1;
-        while((right-left)>1){
-            int mid = (right+left)/2;
-            if(isLowOK(S[mid], basic)){
-                right = mid;
-            }
-            else{
-                left = mid;
-            }
-        }
-        return right;
-    }
-    public static boolean isUppOK(int content,int search){
-        if(content > search){ // S[mid] > basic
-            return true;
-        }
-        else{
-            return false;
-        }
-
-    }
-    public static int j_upperbounder(int basic,int[] S){
-        int right=S.length;
-        int left=-1;
-        while(right-left>1){
-            int mid = (right+left)/2;
-            if(isUppOK(S[mid], basic)){
-                right = mid;
-            }
-            else{
-                left = mid;
-            }
-        }
-        return right;
-    }
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int peace = sc.nextInt();
@@ -65,11 +20,35 @@ public class Main{
         Arrays.sort(A);
         Arrays.sort(B);
         Arrays.sort(C);
-        int answer=0;
-        for(int j=0;j<peace;j=j+1){
-            int a_count=j_lowbounder(B[j], A);
-            int c_count=peace-j_upperbounder(B[j],C);
-            answer = answer + a_count*c_count;
+        long answer=0L;
+        for(int j=0;j<peace;j++){
+            long lowbound=0L;
+            int right = peace;
+            int left = -1;
+            while(right-left>1){
+                int mid=(right+left)/2;
+                if(A[mid]<B[j]){
+                    left=mid;
+                }
+                else{
+                    right=mid;
+                }
+            }
+            lowbound=(long)right;
+            long upperbound=0L;
+            right = peace;
+            left = -1;
+            while(right-left>1){
+                int mid=(right+left)/2;
+                if(C[mid]<=B[j]){
+                    left=mid;
+                }
+                else{
+                    right=mid;
+                }
+            }
+            upperbound=(long)(peace-right);
+            answer = answer + upperbound*lowbound;
         }
         System.out.println(answer);
     }
