@@ -1,6 +1,6 @@
 import java.util.*;
 public class Main{
-    public static boolean isLowOK(int content,int search){
+    public static boolean isLowOK(long content,long search){
         if(content >= search){ // S[mid] >= basic
             return true;
         }
@@ -9,10 +9,10 @@ public class Main{
         }
 
     }
-    public static int j_lowbounder(int basic,int[] S){
+    public static int j_lowbounder(long basic,long[] S){
         int right=S.length;
         int left=-1;
-        while((right-left)>1){
+        while(Math.abs(right-left)>1){
             int mid = (right+left)/2;
             if(isLowOK(S[mid], basic)){
                 right = mid;
@@ -23,7 +23,7 @@ public class Main{
         }
         return right;
     }
-    public static boolean isUppOK(int content,int search){
+    public static boolean isUppOK(long content,long search){
         if(content > search){ // S[mid] > basic
             return true;
         }
@@ -32,10 +32,10 @@ public class Main{
         }
 
     }
-    public static int j_upperbounder(int basic,int[] S){
+    public static int j_upperbounder(long basic,long[] S){
         int right=S.length;
         int left=-1;
-        while(right-left>1){
+        while(Math.abs(right-left)>1){
             int mid = (right+left)/2;
             if(isUppOK(S[mid], basic)){
                 right = mid;
@@ -49,17 +49,17 @@ public class Main{
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int peace = sc.nextInt();
-        int[] A=new int[peace];
-        int[] B=new int[peace];
-        int[] C=new int[peace];
+        long[] A=new long[peace];
+        long[] B=new long[peace];
+        long[] C=new long[peace];
         for(int j=0;j<peace;j=j+1){
-            A[j] = sc.nextInt();
+            A[j] = sc.nextLong();
         }
         for(int j=0;j<peace;j=j+1){
-            B[j] = sc.nextInt();
+            B[j] = sc.nextLong();
         }
         for(int j=0;j<peace;j=j+1){
-            C[j] = sc.nextInt();
+            C[j] = sc.nextLong();
         }
         sc.close();
         Arrays.sort(A);
