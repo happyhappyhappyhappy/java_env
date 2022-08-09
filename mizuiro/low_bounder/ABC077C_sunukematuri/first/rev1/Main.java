@@ -46,6 +46,17 @@ public class Main{
         }
         return right;
     }
+    public static long solver(long[] A,long[] B,long[] C){
+        long result=0;
+        for(int j=0;j<A.length;j=j+1){
+            int acount=0;
+            int ccount=0;
+            acount=j_lowbounder(B[j],A);
+            ccount=B.length-j_upperbounder(B[j], C);
+            result = result + acount*ccount;            
+        }
+        return result;
+    }
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int peace = sc.nextInt();
@@ -65,12 +76,6 @@ public class Main{
         Arrays.sort(A);
         Arrays.sort(B);
         Arrays.sort(C);
-        int answer=0;
-        for(int j=0;j<peace;j=j+1){
-            int a_count=j_lowbounder(B[j], A);
-            int c_count=peace-j_upperbounder(B[j],C);
-            answer = answer + a_count*c_count;
-        }
-        System.out.println(answer);
+        System.out.println(solver(A,B,C));
     }
 }
