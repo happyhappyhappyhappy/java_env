@@ -1,3 +1,23 @@
 {
-    "git.postCommitCommand": "push"
+    "git.postCommitCommand": "push",
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#8297b4",
+        "activityBar.background": "#8297b4",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#e7d7de",
+        "activityBarBadge.foreground": "#15202b",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#8297b4",
+        "statusBar.background": "#627da1",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#8297b4",
+        "statusBarItem.remoteBackground": "#627da1",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#627da1",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#627da199",
+        "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.remoteColor": "#627da1"
 }
