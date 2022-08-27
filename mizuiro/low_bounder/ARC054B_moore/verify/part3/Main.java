@@ -7,8 +7,8 @@ public class Main{
     }
     private static double[] divide3(double left,double right){
         double ans[] = new double[2];
-        ans[0] = (left*2.0+right)/2.0;
-        ans[1] = (left+right*2.0)/2.0;
+        ans[0] = (left*2.0+right)/3.0;
+        ans[1] = (left+right*2.0)/3.0;
         return ans;
     }
     public static void main(String[] args){
