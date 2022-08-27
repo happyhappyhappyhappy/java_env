@@ -21,7 +21,7 @@ public class Main{
             x = divide3(left,right);
             double left_plus=x[0];
             double right_minus=x[1];
-            // TODO: この辺の微調整
+            // TODO: この辺の微調整→治ったかも
             // FIXME: どうもおかしい
             System.out.println(left+" "+left_plus+" "+
             right_minus+" "+right);
