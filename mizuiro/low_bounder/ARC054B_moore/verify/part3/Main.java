@@ -16,13 +16,11 @@ public class Main{
         double left = sc.nextDouble();
         double right = sc.nextDouble();
         sc.close();
-        while(Math.abs(right-left)>0.0001){
+        for(int j=0;j<1000;j=j+1){
             double x[];
             x = divide3(left,right);
             double left_plus=x[0];
             double right_minus=x[1];
-            // TODO: この辺の微調整→治ったかも
-            // FIXME: どうもおかしい
             System.out.println(left+" "+left_plus+" "+
             right_minus+" "+right);
             double subleft_v=function(left_plus);
@@ -34,6 +32,10 @@ public class Main{
             }
             else{
                 left = left_plus;
+            }
+            if(Math.abs(right-left)<0.000000001){
+                System.out.println("誤差許容範囲");;
+                break;
             }
             System.out.println("次回左: "+left+" 右: "+right);
         }
