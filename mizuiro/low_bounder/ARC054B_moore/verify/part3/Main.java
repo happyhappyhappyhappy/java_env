@@ -1,44 +1,40 @@
 import java.util.*;
 
 public class Main{
-    private static double function(double x){
-        double ans = x*x-6.0*x+9.0;
-        return ans;
+    private static double GOLDEN=(1.0+Math.sqrt(5.0))*Math.pow(2.0,-1.0);
+    private static double f(double x){
+        return x*x-6.0*x+9.0;
     }
-    private static double[] divide3(double left,double right){
-        double ans[] = new double[2];
-        ans[0] = (left*2.0+right)/3.0;
-        ans[1] = (left+right*2.0)/3.0;
-        return ans;
+    private static double[] gdevide(double x,double y){
+        double[] a = new double[2];
+        a[0] = (GOLDEN*x+1.0*y)*Math.pow(GOLDEN+1.0,-1); // 左側
+        a[1] = (1.0*x+GOLDEN*y)*Math.pow(GOLDEN+1.0,-1); // 右側
+        return a;
     }
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         double left = sc.nextDouble();
         double right = sc.nextDouble();
-        sc.close();
+        sc.close();    
         for(int j=0;j<1000;j=j+1){
-            double x[];
-            x = divide3(left,right);
-            double left_plus=x[0];
-            double right_minus=x[1];
-            System.out.println(left+" "+left_plus+" "+
-            right_minus+" "+right);
-            double subleft_v=function(left_plus);
-            double subright_v=function(right_minus);
-            System.out.println("左: "+subleft_v+" 右:"+subright_v);
-            if(function(left_plus)<=function(right_minus)){
-                
+            double between[] = new double[2];
+            between = gdevide(left,right);
+            double left_plus = between[0];
+            double right_minus=between[1];
+            if(f(left_plus)<=f(right_minus)){
                 right = right_minus;
             }
             else{
                 left = left_plus;
             }
             if(Math.abs(right-left)<0.000000001){
-                System.out.println("誤差許容範囲");;
+                System.out.println("誤差許容範囲");
                 break;
             }
-            System.out.println("次回左: "+left+" 右: "+right);
+            System.out.println("試行 "+j+" 左: "+left
+            +" 右:"+right);
         }
         System.out.println(right);
     }
+
 }
