@@ -1,3 +1,4 @@
 csharp
 *.class
 test*.txt
+testcase*
