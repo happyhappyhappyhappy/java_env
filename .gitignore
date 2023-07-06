@@ -2,3 +2,5 @@ csharp
 *.class
 test*.txt
 testcase*
+debug*.txt
+nogit*.txt
